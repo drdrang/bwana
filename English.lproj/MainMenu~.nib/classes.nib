@@ -1,0 +1,14 @@
+{
+    IBClasses = (
+        {CLASS = FirstResponder; LANGUAGE = ObjC; SUPERCLASS = NSObject; }, 
+        {CLASS = MyButton; LANGUAGE = ObjC; SUPERCLASS = NSButton; }, 
+        {
+            ACTIONS = {manualPage = id; masterIndex = id; openBruji = id; }; 
+            CLASS = MyController; 
+            LANGUAGE = ObjC; 
+            OUTLETS = {manTextField = NSTextField; versionTextField = NSTextField; }; 
+            SUPERCLASS = NSObject; 
+        }
+    ); 
+    IBVersion = 1; 
+}

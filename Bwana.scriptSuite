@@ -1,0 +1,14 @@
+
+
+{
+    "Name" = "Bwana";
+    "AppleEventCode" = "BwAn";
+	
+	    "Commands" = {
+        "GetURL" = {
+            CommandClass = URLHandlerCommand;
+            AppleEventCode = GURL;
+            AppleEventClassCode = GURL;
+         };
+    };
+}

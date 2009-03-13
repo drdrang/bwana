@@ -1,0 +1,212 @@
+{\rtf1\ansi\ansicpg1252\cocoartf949\cocoasubrtf270
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 LucidaGrande;\f2\fnil\fcharset0 Monaco;
+}
+{\colortbl;\red255\green255\blue255;\red0\green12\blue255;\red51\green51\blue51;\red0\green0\blue255;
+}
+\margl1440\margr1440\vieww13540\viewh17820\viewkind0
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\qc
+
+\f0\fs32 \cf2 Thank you for downloading Bwana
+\fs24 \cf0 \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 What is Bwana?
+\b0 \
+\
+Bwana is a manual page viewer for Safari. It parses man pages, located in /usr/share/man to provide pages in an easy to read format. The pages have links to other man pages, http and email references--the way man pages should have been from the start.\
+\
+
+\b How do I install Bwana?
+\b0 \
+\
+To install just drag to your hard drive, may I suggest the Applications/Utilities folder.\
+\
+
+\b How do I use Bwana?
+\b0 \
+\
+Bwana is used in Safari, by simply typing into the URL field "man:" followed by the man page you're looking for.  If you like a particular man page, for example arp(8) instead of arp(4), use: "man:arp.8".  Otherwise Bwana returns the first man page found, just like man in the terminal.\
+\
+You may also use "man://ls"\
+\
+You may also call an index of all pages on your drive by simply leaving it blank: "man:".  "man:index_refresh" refreshes the index page instead of using the cache. There is a link to the  index on the header of every page created by Bwana.\
+\
+To search the the index for an expression use man:foo.?\
+\
+You can use Bwana from the terminal with "open -a Bwana man:ls" will open in the last browser that Bwana displayed a man page in or "open -a Safari man:ls" to specify a browser.\
+\
+Also for advance customisation if you wish to open man pages in tabs or new windows, or any other kind of behaviour, you can do so by changing the scripts.strings file inside the Bwana resource folder.  I have added two alternative script files for Safari for a new window or tabs, feel free to use these scripts written by Cameron Hayne.\
+\
+
+\b What about additional man paths?
+\b0 \
+\
+To add man paths to Bwana append them to your bash login shell environment variable $MANPATH. Open the file ".profile"  in your home folder and add the line "export MANPATH=$MANPATH:/new/path/to/man".  \
+\
+Another option (the only option if your not using the bash shell) is to add them to your system in the man configuration file located in Leopard at /private/etc/man.conf (prior systems at  /usr/share/misc/man.conf). The format for including another path is a new line with: MANPATH /usr/share/mynewpath. \
+\
+To open a temporary page in a path you don't want to include as part of your man configuration then pass the entire path to Bwana with man:/Users/myuser/Desktop/mansource.1 or man:///Users/myuser/Desktop/mansource.1.\
+\
+
+\b Bwana on the Web
+\b0 \
+\
+You can use "man:example" links in your web pages. Users with Bwana installed will be able to call up the appropriate page.  (There are similar programs for Linux and UNIX users that will also respond to "man:" links)  Feel free to provide links to Bwana for Mac visitors without a "man:" viewer.  Bwana is free, to make cyber space a slightly happier place. It's also open source under the MIT license, if you make any changes let us know so we can make Bwana better.\
+\
+
+\b What does Bwana mean?
+\b0 \
+\
+Bwana means "Man" or "Sir" in Swahili.  We thought it a fitting name for man pages that integrate with Safari. The Bwana icon although crude is a copy of one of the earliest rock drawings of man by man, found in Namibia.\
+\
+
+\b Who are you?\
+\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 We are small shareware developers, when not reading man pages, we also make some great Mac software. Stop by http://www.bruji.com/ and check them out.  Feel free to drop us a note at bwana@bruji.com. Bwana has been enhanced by a number of dedicated contributers among which are Daniel Jalkut from Red Sweater Software, Aussie Mark Johnston, FZiegler, Nathaniel Gray and Tetsuro Kurita.\
+\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 Any Bugs?
+\b0 \
+\
+Camino always opens a new window, if anyone knows how to have Camino load a file in the current window, please let me know. (So does the new version of Firefox.)\
+\
+
+\b I have updated some of my man pages and I keep getting the old page?
+\b0 \
+\
+Bwana caches the HTML formatted man page so that it doesn't have to recreate commonly accessed pages more than once. Delete the caches folder to create new copies, the folder is located in your home folder ~/Library/Caches/Bwana.\
+\
+
+\b Any Changes Lately?\
+\
+2.4\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 + Handles tables displays\
++ Updates cached pages older than 30 days\
++ Finds man path locations from your login shell (tkurita)\
++ Adds more descriptions to index\
++ Uses less memory when creating index 
+\b \
+\
+\
+2.3\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\b0 \cf0 + Updated for Leopard.\
++ 10.3.9+ only.\
++ Icon has a white glow for the new Leopard dock.\
++ Focus is in input field when opening Bwana with option key.\
++ Bug fix: index list man sections for paths were not all sections were present (Nathaniel Gray) \
+
+\b \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 2.2\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\b0 \cf0 + FZiegler fixed a bug when building an index that requires opening several gzip man pages. 
+\b \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 \
+2.1\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\b0 \cf0 + The not found page brings up a
+\f1 \cf3  lists all substring matches.  (Daniel Jalkut)\
+http://www.red-sweater.com/blog/238/one-small-step-for-a-man-page
+\f0\b \cf0 \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 \
+2.0\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\b0 \cf0 + Faster.\
++ Handles zipped man pages such as 
+\f2\fs28 \cf4 \ul \ulc4 man:crontab
+\f0\fs24 \cf0 \ulnone \
++ Handles pages with a period in the path such as 
+\f2\fs28 \cf4 \ul man:launchd.plist
+\f0\fs24 \cf0 \ulnone \
++ Handles  man pages in non standard locations.\
++ iCab and OmniWeb scripts.\
++ Automatically knows the calling browser without having to change the preferences.\
++ Open URL called from other programs in last used browser by Bwana.\
++ Open many more it couldn't find before like man:s_server.1ssl.\
++ Saves files in Caches for longer caching and faster access to common files. \
++ New header with a search field and index link.
+\b \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+\cf0 \
+1.8\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 + Re-enabled perl modules to work any man page with ":" in the name \
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 \
+1.7\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 + Added more security features., even though they might not be needed. 
+\b \
+\
+1.6\
+
+\b0 + Update to work with Safari 1.3 included in 1.3.9 OS X update.
+\b \
+\
+1.5\
+
+\b0 + Access to the AppleScripts run by Bwana.
+\b \
+\
+1.4\
+
+\b0 + MANPATH is cached for faster loading.  (Refreshing the index, reloads the MANPATH)\
++ Ability to use Firefox, Internet Explorer or Camino.\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 \
+1.3\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 + Due to popular demand MANPATH used to determine man page paths.\
++ All man page in different paths included in index.\
++ Index used from file when present for quick access.\
++ link to refresh index on index page, command is "man:index_refresh".\
++ Unknow index section at beginning removed.\
++ Added /opt/local/sahre/man to default group of paths if MANPATH fails.\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b \cf0 \
+1.2\
+\pard\tx565\tx1133\tx1700\tx2266\tx2832\tx3401\tx3967\tx4535\tx5102\tx5669\tx6235\tx6802\ql\qnatural
+
+\b0 \cf0 + Added the following man path search locations:\
+	/usr/local/man\
+	/usr/lcoal/share/man\
+	/usr/X11R6/man\
+	/sw/share/man
+\b \
+\
+1.1\
+
+\b0 + Searches more possible man file locations.\
++ Searches for files with special ending like wattrset.3x as well, if not provided.\
++ Copy paste ability for window.
+\b \
+\
+1.0\
+
+\b0 + Added an Index page, call with "man:"
+\b \
+
+\b0 + Fixed a solid underlining problem in grep.1 page.\
++ Fixed headers with more than one word all bold.\
++ Service command opens new window\
+}

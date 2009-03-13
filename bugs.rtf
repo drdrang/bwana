@@ -1,0 +1,43 @@
+{\rtf1\mac\ansicpg10000\cocoartf824\cocoasubrtf440
+{\fonttbl\f0\fswiss\fcharset77 Helvetica;\f1\fnil\fcharset77 Monaco;}
+{\colortbl;\red255\green255\blue255;}
+\margl1440\margr1440\vieww9000\viewh8400\viewkind0
+\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\ql\qnatural\pardirnatural
+
+\f0\fs24 \cf0 Bwana:\
+\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\ql\qnatural\pardirnatural
+
+\f1 \cf0 I have a man page called vl-1.1.  Your indexing function doesn't like  \
+it at all.  I also have one called vl.1.  They use\
+\
+.SH NAME\
+vl, vl-1 \\- description\
+\
+both end up with a '\\' before the dash in the description.  Reversing  \
+them\
+\
+.SH NAME\
+vl-1, vl \\- description\
+\
+really causes some serious problems.\
+\
+I can live with this, but I thought you should know.\
+\
+Man pages referencing another man page with .so do not get their name  \
+displayed.  This may be difficult, or impossible, to correct.  I  \
+usually ln these files, which solves the problem, but mot of the  \
+built-in man pages use .so.\
+\
+I already wrote to mention that the index for a man page like a.b.1  \
+shows up as a(1) instead of a.b(1).  I just noticed that man pages  \
+which use .SH "NAME" instead of .SH NAME (and there are many of  \
+these) do not show the description in the index.  I thought about  \
+editing these, but there are a lot and the next OS X update could  \
+overwrite all the changes.  I thought it  might be easier to fix the  \
+program.\
+\
+BTW, although I know standard C, I don't know the language you are  \
+using, which looks like C, but isn't, so I can't even guess where I  \
+need to look to change these things myself.\
+}

@@ -1,0 +1,13 @@
+
+
+{
+    "Name" = "Bwana commands";
+    "Description" = "Commands to handle a URL.";
+	
+	    "Commands" = {
+        "GetURL" = {
+            "Name" = "get URL";
+            "Description" = "Open a URL";
+        };
+    };   
+}

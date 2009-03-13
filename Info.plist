@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>English</string>
+	<key>CFBundleExecutable</key>
+	<string>Bwana</string>
+	<key>CFBundleIconFile</key>
+	<string>bwana.icns</string>
+	<key>CFBundleIdentifier</key>
+	<string>com.bruji.bwana</string>
+	<key>CFBundleInfoDictionaryVersion</key>
+	<string>6.0</string>
+	<key>CFBundlePackageType</key>
+	<string>APPL</string>
+	<key>CFBundleSignature</key>
+	<string>BwAn</string>
+	<key>CFBundleURLName</key>
+	<string>Man Pages</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>Bwana man URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>man</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleURLName</key>
+			<string>x-man-page URL</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>x-man-page</string>
+			</array>
+		</dict>
+	</array>
+	<key>CFBundleVersion</key>
+	<string>2.4</string>
+	<key>LSIsAppleDefaultForScheme</key>
+	<true/>
+	<key>NSAppleScriptEnabled</key>
+	<string>NO</string>
+	<key>NSMainNibFile</key>
+	<string>MainMenu</string>
+	<key>NSPrincipalClass</key>
+	<string>NSApplication</string>
+	<key>NSServices</key>
+	<array>
+		<dict>
+			<key>NSMenuItem</key>
+			<dict>
+				<key>default</key>
+				<string>Search Selection in Man Pages</string>
+			</dict>
+			<key>NSMessage</key>
+			<string>searchFor</string>
+			<key>NSPortName</key>
+			<string>Bwana</string>
+			<key>NSSendTypes</key>
+			<array>
+				<string>NSStringPboardType</string>
+			</array>
+		</dict>
+	</array>
+	<key>NSUIElement</key>
+	<string>1</string>
+</dict>
+</plist>

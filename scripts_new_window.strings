@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple Computer//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>Camino</key>
+	<string>tell application "Camino"
+	open URL "file://%@"
+	end tell</string>
+	<key>Explorer</key>
+	<string>tell application "Internet Explorer"
+	OpenURL "file://%@" toWindow -1
+	end tell</string>
+	<key>Firefox</key>
+	<string>tell application "Firefox"
+	Get URL "file://%@" inside window 1
+	end tell</string>
+	<key>Safari</key>
+	<string>
+	-- Cameron Hayne (macdev@hayne.net) December 2004
+	-- http://www.macosxhints.com/article.php?story=200412080923108
+	tell application "Safari"
+    activate
+    make new document at end of documents
+    set URL of document 1 to "file://%@"
+	end tell</string>
+	<key>iCab</key>
+	<string>tell application "iCab"
+	GetURL "file://%@"
+	end tell</string>
+	<key>OmniWeb</key>
+	<string>tell application "OmniWeb"
+	GetURL "file://%@"
+	end tell</string>
+</dict>
+</plist>
