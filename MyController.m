@@ -196,7 +196,7 @@
 		if (checkForUnderline) {
 			if(noUnderline == 1) {
 				if ([asciiFormatedInput characterAtIndex:i] != 95) {
-					[webPage appendString:@"</u>"];
+					[webPage appendString:@"</i>"];
 					checkForUnderline = NO;		
 					noUnderline = 0;
 				}
@@ -208,10 +208,10 @@
 		if (checkForRed) {
 			if(noEight == 1) {
 				if ([asciiFormatedInput characterAtIndex:i] != 8 /*|| ([asciiFormatedInput characterAtIndex:i-1] == 95 && [asciiFormatedInput characterAtIndex:i+1] != 95) */) {
-//					if ([webPage hasSuffix:@"</u>"])
+//					if ([webPage hasSuffix:@"</i>"])
 //						[webPage insertString:@"</span>" atIndex:[webPage length]-4];
 //					else 
-					if ([webPage hasSuffix:@"<u>"])
+					if ([webPage hasSuffix:@"<i>"])
 						[webPage insertString:@"</span>" atIndex:[webPage length]-3];
 					else
 						[webPage insertString:@"</span>" atIndex:[webPage length]-1];
@@ -252,7 +252,7 @@
 				else {
 				
 					if (!checkForUnderline) {
-						[webPage appendString:@"<u>"];
+						[webPage appendString:@"<i>"];
 						checkForUnderline = YES;
 					}
 					i++;
@@ -339,8 +339,8 @@
 									
 									NSMutableString *manClean = [NSMutableString string];
 									[manClean setString:manCommand];
-									[manClean replaceOccurrencesOfString:@"<u>" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [manClean length])];
-									[manClean replaceOccurrencesOfString:@"</u>" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [manClean length])];
+									[manClean replaceOccurrencesOfString:@"<i>" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [manClean length])];
+									[manClean replaceOccurrencesOfString:@"</i>" withString:@"" options:NSLiteralSearch range:NSMakeRange(0, [manClean length])];
 									
 									
 									NSString *htmlLink = [NSString stringWithFormat:@"<a href=\"man:%@.%c\">%@(%c)</a>", manClean, [webPage characterAtIndex:end-2], manCommand, [webPage characterAtIndex:end-2]];
@@ -364,7 +364,7 @@
 	}
 	
 	if (checkForUnderline) {
-		[webPage appendString:@"</u>"];
+		[webPage appendString:@"</i>"];
 	}
 	if (checkForRed) {
 		[webPage appendString:@"</span>"];
