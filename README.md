@@ -14,7 +14,7 @@ As it comes from Bruji, Bwana formats man pages with colors and underlines that 
 
 1. Words that would be underlined in the Terminal are italicized. Bruji has them underlined.
 2. Words that would be bold in the Terminal are bold. Bruji has them red and medium weight.
-3. Links to other pages are blue, bold and underlined only when the mouse hovers over them. Bruji has them blue, medium weight, and always underlined.
+3. Links to other pages are blue and bold and get underlined only when the mouse hovers over them. Bruji has them blue, medium weight, and always underlined.
 
 <img class="ss" src="http://www.leancrew.com/all-this/images/man-bwana-chmod.png" />
 
