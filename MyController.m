@@ -7,11 +7,11 @@
 
 
 // HTML Code that gets inserted for header and footer of page. Includes CSS attributes and search field header 
-#define HTML_HEADER_INDEX @"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html; charset=utf-8\"><title>Manual Pages</title><style type=\"text/css\">.blueBox{ background-color: #F1F5F9;padding: 6px 10px 6px 10px; border: 1px #ccc double; color: #000000; font-size: 14px}.indexLink {float:right; margin-top:4px;}</style></head><body><form name=\"form1\" method=\"get\" action=\"man:\"><div class=\"blueBox\"><a class=\"indexLink\" href=\"man:index_refresh%@\">Refresh</a>man: <input name=\"a\" type=\"text\"><input type=\"submit\" value=\"Search\"></div></form> "
+#define HTML_HEADER_INDEX @"<!DOCTYPE html><header><html lang=\"en\"><META CHARSET=\"UTF-8\"><title>Manual Pages</title><style type=\"text/css\">.blueBox{ background-color: #F1F5F9;padding: 6px 10px 6px 10px; border: 1px #ccc double; color: #000000; font-size: 14px}.indexLink {float:right; margin-top:4px;}</style></head><body><form name=\"form1\" method=\"get\" action=\"man:\"><div class=\"blueBox\"><a class=\"indexLink\" href=\"man:index_refresh%@\">Refresh</a>man: <input name=\"a\" type=\"text\"><input type=\"submit\" value=\"Search\"></div></form> "
 
-#define HTML_HEADER_MAN @"<html><head><meta http-equiv=\"Content-Type\" content=\"text/html;charset=iso-8859-1\"><title>Manual Page for %@</title><style type=\"text/css\">a { font-weight: bold; text-decoration: none} a:hover {text-decoration: underline} .red {font_weight: bold} .hed {color: #000000; font-weight: bold; font-size: larger;}.blueBox{ background-color: #F1F5F9;padding: 6px 10px 6px 10px; border: 1px #ccc double; color: #000000; font-size: 14px}.indexLink {float:right; margin-top:4px;}</style></head><body><form name=\"form1\" method=\"get\" action=\"man:\"><div class=\"blueBox\"><a class=\"indexLink\" href=\"man:\">Index</a>man: <input name=\"a\" type=\"text\"><input type=\"submit\" value=\"Search\"></div></form><pre> "
+#define HTML_HEADER_MAN @"<!DOCTYPE html><header><html lang=\"en\"><META CHARSET=\"iso-8859-1\"><title>Manual Page for %@</title><style type=\"text/css\">a { font-weight: bold; text-decoration: none} a:hover {text-decoration: underline} .red {font_weight: bold} .hed {color: #000000; font-weight: bold; font-size: larger;}.blueBox{ background-color: #F1F5F9;padding: 6px 10px 6px 10px; border: 1px #ccc double; color: #000000; font-size: 14px}.indexLink {float:right; margin-top:4px;}</style></head><body><form name=\"form1\" method=\"get\" action=\"man:\"><div class=\"blueBox\"><a class=\"indexLink\" href=\"man:\">Index</a>man: <input name=\"a\" type=\"text\"><input type=\"submit\" value=\"Search\"></div></form><pre> "
 
-#define HTML_FOOTER @"<div align=\"center\" class=\"blueBox\">Bwana Created by <a href=\"http://www.bruji.com/\">Bruji</a></div></body></html> "
+#define HTML_FOOTER @"<div align=\"center\" class=\"blueBox\">Bwana</div></body></html>"
 
 
 @interface MyController (private)
@@ -102,10 +102,10 @@
 	//check for shell command injections and cut string short
 	NSCharacterSet *charSet = [NSCharacterSet characterSetWithCharactersInString:@"ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz:-_.0123456789/"];
 	charSet = [charSet invertedSet];
-	int aLocation;
-	if ((aLocation = [manualPage rangeOfCharacterFromSet:charSet].location) != NSNotFound ) {
+	int aLocation = [manualPage rangeOfCharacterFromSet:charSet].location;
+	if (aLocation  != NSNotFound ) {
 		manualPage = [manualPage substringToIndex:aLocation];
-	}
+	} 
 	
 	// Separate the section part from the manual page
 	// If the path has slashes in it, it's a path directly do not seperate the section at the end.
@@ -116,7 +116,7 @@
 			NSCharacterSet *sectionCharSet = [NSCharacterSet characterSetWithCharactersInString:@"0123456789nlpo"];
 			
 			//The section should be 1-9, n, p, l, o, 0p, 1p, 3p or tcl. Otherwise leave intact
-			if ([section length] == 1 && [section rangeOfCharacterFromSet:sectionCharSet].location != NSNotFound || [section isEqualToString:@"tcl"] || [section isEqualToString:@"0p"] || [section isEqualToString:@"1p"] || [section isEqualToString:@"2p"]) {
+			if (([section length] == 1 && [section rangeOfCharacterFromSet:sectionCharSet].location != NSNotFound) || [section isEqualToString:@"tcl"] || [section isEqualToString:@"0p"] || [section isEqualToString:@"1p"] || [section isEqualToString:@"2p"]) {
 				manualPage = [manualPage substringToIndex:aLocation];
 			}
 			else 
@@ -145,7 +145,7 @@
 		NSString *manualPagePath = [self manualPageFor:manualPage section:section];
 		
 		if (manualPagePath) {
-			NSString *manFile = [NSString stringWithContentsOfFile:manualPagePath];
+			NSString *manFile = [NSString stringWithContentsOfFile: manualPagePath encoding: NSUTF8StringEncoding error: NULL];
 			
 			//It's a redirection
 			if ([manFile hasPrefix:@".so"]) {
@@ -160,7 +160,7 @@
 			// If successful, turn it into HTML and save it to disk
 			if (asciiFormatedOutput) {
 				NSString *HTMLFormatted = [self formatForHTML:asciiFormatedOutput manual:manualPage];	
-				[HTMLFormatted writeToFile:tempLocationOfFile atomically:NO];
+				[HTMLFormatted writeToFile:tempLocationOfFile atomically:NO encoding: NSUTF8StringEncoding error: NULL];
 				foundManPage = YES;
 			}
 		}
@@ -485,9 +485,9 @@
 		//Get all the man paths from  /usr/share/misc/man.conf
 		NSString *manConfFile;
 		if ([self isLeopard])
-			manConfFile = [NSString stringWithContentsOfFile:@"/private/etc/man.conf"];
+			manConfFile = [NSString stringWithContentsOfFile:@"/private/etc/man.conf" encoding: NSUTF8StringEncoding error: NULL];
 		else
-			manConfFile = [NSString stringWithContentsOfFile:@"/usr/share/misc/man.conf"];
+			manConfFile = [NSString stringWithContentsOfFile:@"/usr/share/misc/man.conf" encoding: NSUTF8StringEncoding error: NULL];
 
 		NSEnumerator *linesOfFileEnum = [[manConfFile componentsSeparatedByString:@"\n"] objectEnumerator];
 			
@@ -623,7 +623,7 @@
 								manFilePath = [self unzip:manFilePath];
 							}
 							
-							NSString *manFile = [NSString stringWithContentsOfFile:manFilePath];
+							NSString *manFile = [NSString stringWithContentsOfFile:manFilePath encoding: NSUTF8StringEncoding error: NULL];
 							
 							if ([manFile hasPrefix:@".so"]) {
 								NSArray *parts = [manFile componentsSeparatedByString:@"\n"];
@@ -635,7 +635,7 @@
 									newLocationOfFile = [self unzip:newLocationOfFile];
 								}
 								
-								manFile = [NSString stringWithContentsOfFile:newLocationOfFile];
+								manFile = [NSString stringWithContentsOfFile:newLocationOfFile encoding: NSUTF8StringEncoding error: NULL];
 							}
 							
 							if ((sections = [manFile rangeOfString:@".Nd"]).location != NSNotFound) {
@@ -706,7 +706,7 @@
 		[webPage appendString:HTML_FOOTER];
 
 		// Cache this index
-		[webPage writeToFile:thisIndexCacheFilePath atomically:NO];
+		[webPage writeToFile:thisIndexCacheFilePath atomically:NO encoding: NSUTF8StringEncoding error: NULL];
 	}
 	
 	// Try to open whatever we've got
@@ -859,7 +859,7 @@
 		unzippedString = [unzippedString substringToIndex:[unzippedString length] -1];
 		
 		unzippedPath = [NSString stringWithFormat:@"%@/%@.txt", NSTemporaryDirectory(), [[aPath lastPathComponent] stringByDeletingPathExtension]];
-		[unzippedString writeToFile:unzippedPath atomically:NO];
+		[unzippedString writeToFile:unzippedPath atomically:NO encoding: NSUTF8StringEncoding error: NULL];
 	}
 	
 	[gunzipHandle closeFile];  //FZiegler
@@ -895,7 +895,7 @@
 	//pass to groff
 	NSString *tempLocation = [NSTemporaryDirectory() stringByAppendingPathComponent:@"BwanaTemp.txt"];
 	// NSLog(@"%@", tempLocation);
-	[asciiFormatedOutput writeToFile:tempLocation atomically:NO];
+	[asciiFormatedOutput writeToFile:tempLocation atomically:NO encoding: NSUTF8StringEncoding error: NULL];
 	
 	 // Get the output for the man path formated by groff for ascii
 	 NSTask *groffTask = [[[NSTask alloc] init] autorelease];
